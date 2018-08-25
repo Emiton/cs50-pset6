@@ -1,7 +1,5 @@
 from cs50 import get_int
 
-print("It's a me, Mario!")
-
 height = -1
 
 while height < 0 or height > 23:
@@ -12,11 +10,14 @@ while height < 0 or height > 23:
 rowLength = height * 2 + 2
 
 for row in range(height):
-    for col in range(height):
-        if col <= row:
+    for col in range(rowLength):
+        # Determine boundaries for first half of pyramid
+        if height - row - 1 <= col and col < height:
             print("#", end="")
+        # Determine boundaries for second half of pyramid
+        elif col > height + 1 and col <= height + 2 + row:
+            print("#", end="")
+        # Anything not in boundaries, print a blank character
+        elif col <= height + 1:
+            print(" ", end="")
     print()
-
-print()
-
-
