@@ -12,13 +12,10 @@ while height < 0 or height > 23:
 rowLength = height * 2 + 2
 
 for row in range(height):
-    for col in range(rowLength):
-        if (height - row) <= col and col < height:
+    for col in range(height):
+        if col <= row:
             print("#", end="")
-        #elif True:
-            #print(" ")
-        # elif True:
-        #     print(" ")
+    print()
 
 print()
 
