@@ -6,7 +6,7 @@ def main():
     # Key used to shift plain text characters
     key = int(sys.argv[1]) % 26
 
-    # Ensure only a key was given
+    # Ensure only a numeric value was given
     if len(sys.argv) != 2 or not isinstance(key, int):
         sys.exit("Please enter a positive integer as a command line argument")
 
@@ -17,17 +17,17 @@ def main():
 
         if plainText[char].isalpha():
 
-            # If lowercase, use lowercase a and z as a reference point
+            # If lowercase, use lowercase 'a' and 'z' as a reference point
             if plainText[char].islower():
                 start = ord('a')
                 end = ord('z')
 
-            # If UPPERCASE, use lowercase a and z as a reference point
+            # If UPPERCASE, use uppercase 'A' and 'Z' as a reference point
             elif plainText[char].isupper():
                 start = ord('A')
                 end = ord('Z')
 
-            # If letter will shift past z, add the difference to the beginning
+            # If letter will shift past z, add the difference to the start point
             if ord(plainText[char]) + key > end:
                 c = start + ord(plainText[char]) + key - end - 1
             else:
